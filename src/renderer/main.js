@@ -1,16 +1,28 @@
 import Vue from 'vue';
-import axios from 'axios';
+import VueRouter from 'vue-router';
+import './css/base.css';
+import routes from './routers/routes';
+import { formatTime } from '../common/utils';
 
-import App from './App';
-import router from './router';
+Vue.use(VueRouter);
+Vue.filter('formatTime', formatTime);
 
-if (!process.env.IS_WEB) Vue.use(require('vue-electron'));
-Vue.http = Vue.prototype.$http = axios;
-Vue.config.productionTip = false;
+const router = new VueRouter({
+  mode: 'history',
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
+});
 
-/* eslint-disable no-new */
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || '';
+  next();
+});
+
 new Vue({
-  components: { App },
   router,
-  template: '<App/>',
+  template: `
+    <router-view></router-view>
+  `
 }).$mount('#app');

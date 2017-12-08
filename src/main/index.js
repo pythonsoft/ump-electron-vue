@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron' // eslint-disable-line
+const {app, BrowserWindow} = require('electron') // eslint-disable-line
 
 /**
  * Set `__static` path to static files in production
