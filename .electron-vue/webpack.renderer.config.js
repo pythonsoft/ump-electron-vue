@@ -23,7 +23,7 @@ let whiteListedModules = ['vue']
 let rendererConfig = {
   devtool: '#cheap-module-eval-source-map',
   entry: {
-    renderer: path.join(__dirname, '../src/renderer/main.js')
+    renderer: path.join(__dirname, '../src/renderer/main.js'),
   },
   externals: [
     ...Object.keys(dependencies || {}).filter(d => !whiteListedModules.includes(d))
@@ -54,8 +54,12 @@ let rendererConfig = {
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015'],
+          plugins: ['transform-runtime', 'transform-vue-jsx']
+        }
       },
       {
         test: /\.node$/,

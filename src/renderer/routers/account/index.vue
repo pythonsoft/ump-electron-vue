@@ -22,18 +22,21 @@
   const userAPI = require('../../../api/user');
 
   const INFORMATION_LIST = [
-    { title: '基本信息', items: [
-      { label: '中文名', placeholder: '', name: 'name' },
-      { label: '英文名', placeholder: '', name: 'displayName' }]
+    { title: '基本信息',
+      items: [
+        { label: '中文名', placeholder: '', name: 'name' },
+        { label: '英文名', placeholder: '', name: 'displayName' }]
     },
-    { title: '组织信息', items: [
-      { readonly: true, label: '所属组织', placeholder: '', name: 'company', subName: 'name' },
-      { readonly: true, label: '所属部门', placeholder: '', name: 'department', subName: 'name' },
-      { readonly: true, label: '所属小组', placeholder: '', name: 'team', subName: 'name' }]
+    { title: '组织信息',
+      items: [
+        { readonly: true, label: '所属组织', placeholder: '', name: 'company', subName: 'name' },
+        { readonly: true, label: '所属部门', placeholder: '', name: 'department', subName: 'name' },
+        { readonly: true, label: '所属小组', placeholder: '', name: 'team', subName: 'name' }]
     },
-    { title: '联系信息', items: [
-      { label: '联系电话', placeholder: '', name: 'phone' },
-      { readonly: true, label: '邮箱', placeholder: '', name: 'email' }]
+    { title: '联系信息',
+      items: [
+        { label: '联系电话', placeholder: '', name: 'phone' },
+        { readonly: true, label: '邮箱', placeholder: '', name: 'email' }]
     }
   ];
 
@@ -67,7 +70,7 @@
           .catch((error) => {
             this.$toast.error(error);
           });
-      },
+      }
     }
   };
 </script>

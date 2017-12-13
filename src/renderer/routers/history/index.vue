@@ -31,9 +31,10 @@
     getDuration,
     getMediaFormat,
     getTitle,
-    getThumb,
+    getThumb
   } from '../../../common/common';
   import { formatTime, isEmptyObject } from '../../../common/utils';
+
   const userAPI = require('../../../api/user');
 
   export default {
@@ -101,7 +102,7 @@
           .catch((error) => {
             this.$toast.error(error);
           });
-      },
+      }
     }
   };
 </script>

@@ -15,7 +15,7 @@
       percentage: {
         type: Number,
         default: 0,
-        validator: function (val) {
+        validator(val) {
           return val >= 0 && val <= 100;
         }
       }
@@ -23,7 +23,7 @@
     data() {
       return {
         width: 50,
-        strokeWidth: 4,
+        strokeWidth: 4
       };
     },
     computed: {
@@ -43,12 +43,12 @@
         const perimeter = this.perimeter;
         return {
           strokeDasharray: `${perimeter}px,${perimeter}px`,
-          strokeDashoffset: (1 - this.percentage / 100) * perimeter + 'px',
+          strokeDashoffset: `${(1 - this.percentage / 100) * perimeter}px`,
           transition: 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease'
         };
       },
       icon() {
-        let icon = ''
+        let icon = '';
         switch (this.status) {
           case 'complete':
             icon = 'icon-check';

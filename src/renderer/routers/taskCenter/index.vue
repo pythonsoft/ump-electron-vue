@@ -45,9 +45,11 @@
 <script>
   import FjProgress from './progress';
   import utils from '../../../common/utils';
+
   const userAPI = require('../../../api/user');
   const common = require('./common');
   const config = require('./config');
+
   const MENU_CONFIG = [
     { text: '全部', index: 'task_download_all', route: 'task_download_all' },
     { text: '待审核', index: 'task_download_audit', route: 'task_download_audit' },
@@ -158,7 +160,7 @@
         const param = {
           page: 1,
           pageSize: this.pageSize * this.currentPage,
-          processType: 'download',
+          processType: 'download'
         };
 
         if (this.formData.status) {

@@ -79,7 +79,7 @@
               let translate = Math.round(translateY / this.itemHeight) * this.itemHeight;
               // 超过范围的判断
               const max = 0;
-              const min = - (this.col.length - 1) * this.itemHeight;
+              const min = -(this.col.length - 1) * this.itemHeight;
               translate = Math.max(Math.min(translate, max), min);
               this.updateTranslateStyle(translate);
               // this.translateTop = translate;
@@ -87,7 +87,7 @@
             });
             dragState = {};
           }
-        })
+        });
       },
       translateToValue(translate) {
         translate = Math.round(translate / this.itemHeight) * this.itemHeight;

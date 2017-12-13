@@ -1,4 +1,4 @@
-import Home from './home';
+const Home = resolve => require.ensure([], () => resolve(require('./home.vue')), 'home');
 
 const MediaCenter = resolve => require.ensure([], () => resolve(require('./mediaCenter')), 'mediaCenter');
 const Login = resolve => require.ensure([], () => resolve(require('./login')), 'login');

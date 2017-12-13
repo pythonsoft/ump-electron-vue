@@ -44,7 +44,7 @@
         currentValue: this.value ? new Date(this.value) : new Date(this.startDate),
         keys: ['year', 'month', 'date', 'hour', 'min', 'sec'],
         units: ['年', '月', '日', '时', '分', '秒']
-      }
+      };
     },
     watch: {
       value(val) {
@@ -97,11 +97,11 @@
           }
         }
         const keys = this.keys;
-        const result = keys.map(function(key) {
+        const result = keys.map((key) => {
           const min = range[key][0];
           const max = range[key][1];
           const unit = range[key][2];
-          const item = []
+          const item = [];
           for (let i = min; i <= max; i++) {
             item.push(i);
           }
@@ -112,9 +112,7 @@
       values() {
         const obj = this.dateToObj(this.currentValue);
         const keys = this.keys;
-        const result = keys.map(function(key) {
-          return obj[key];
-        });
+        const result = keys.map(key => obj[key]);
         return result;
       }
     },
@@ -149,7 +147,7 @@
         const nextDate = new Date(year, month + 1, 1);
         const ms = nextDate.getTime() - date.getTime();
         return ms / DAY_DURATION;
-      },
+      }
     },
     components: {
       PickerCol

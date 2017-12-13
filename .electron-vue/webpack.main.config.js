@@ -30,8 +30,12 @@ let mainConfig = {
       // },
       {
         test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015'],
+          plugins: ['transform-runtime', 'transform-vue-jsx']
+        }
       },
       {
         test: /\.node$/,

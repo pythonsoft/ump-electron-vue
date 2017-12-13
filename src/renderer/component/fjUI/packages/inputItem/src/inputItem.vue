@@ -11,6 +11,7 @@
 </template>
 <script>
   import FjCell from '../../cell';
+
   export default {
     name: 'FjInputItem',
     props: {

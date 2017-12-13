@@ -17,6 +17,7 @@
 <script>
   import defaultPic from './video-default-pic.png';
   import errorPic from './video-error-pic.png';
+
   export default {
     name: 'FjCard',
     props: {
@@ -43,7 +44,7 @@
       return {
         thumbStyle: {},
         selfThumb: this.thumb
-      }
+      };
     },
     watch: {
       thumb(val) {

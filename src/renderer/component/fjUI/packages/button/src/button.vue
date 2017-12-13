@@ -20,7 +20,7 @@
         default: false
       }
     },
-    methods:{
+    methods: {
       handleClick(e) {
         this.$emit('click', e);
       }

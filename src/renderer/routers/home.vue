@@ -142,14 +142,14 @@
     formatTime
   } from '../../common/utils';
   import './home.css';
+
   const mediaAPI = require('../../api/media');
   const userAPI = require('../../api/user');
 
   const MENU = [
-    { text: '首页', route: 'trends', icon: 'icon-home' },
     { text: '媒体库', route: 'mediaCenter', icon: 'icon-media-library' },
     { text: '任务', route: 'taskCenter', icon: 'icon-menu' },
-    { text: '个人中心', route: 'personalCenter', icon: 'icon-person' },
+    { text: '个人中心', route: 'personalCenter', icon: 'icon-person' }
   ];
   const START_DATE = new Date(2000, 0, 1);
   const END_DATE = new Date(new Date().getFullYear() + 10, 11, 31);
@@ -206,7 +206,7 @@
           this.$router.push({ name: val });
         }
       },
-      '$route' (to, from) {
+      '$route'(to, from) {
         if (to.meta.hideTabbar) {
           this.hideTabbar = true;
         } else {
@@ -266,18 +266,16 @@
       getSeachConfigs() {
         mediaAPI.getSearchConfig().then((res) => {
           const tempSelectConfigs = [];
-          res.data.searchSelectConfigs.forEach(function(item) {
+          res.data.searchSelectConfigs.forEach((item) => {
             if (item.key !== 'occur_country') {
               item.collapse = false;
               item.tempSelected = item.selected.slice();
-              item.items.sort(function(a, b) {
-                return a.label.length - b.label.length;
-              });
+              item.items.sort((a, b) => a.label.length - b.label.length);
               tempSelectConfigs.push(item);
             }
           });
           this.searchSelectConfigs = tempSelectConfigs;
-          this.searchRadioboxConfigs = res.data.searchRadioboxConfigs.map(function(item) {
+          this.searchRadioboxConfigs = res.data.searchRadioboxConfigs.map((item) => {
             item.collapse = false;
             item.tempSelected = item.selected;
             return item;
@@ -316,10 +314,10 @@
       handleReset() {
         this.tempKeyword = this.keyword;
         this.tempOrderVal = this.orderVal;
-        this.searchSelectConfigs.forEach(function(item) {
+        this.searchSelectConfigs.forEach((item) => {
           item.tempSelected = item.selected.slice();
         });
-        this.searchRadioboxConfigs.forEach(function(item) {
+        this.searchRadioboxConfigs.forEach((item) => {
           item.tempSelected = item.selected;
         });
         this.datetimerange1 = { start: null, end: null };
@@ -329,10 +327,10 @@
         this.isShowSearchCondition = false;
         this.keyword = this.tempKeyword;
         this.orderVal = this.tempOrderVal;
-        this.searchSelectConfigs.forEach(function(item) {
+        this.searchSelectConfigs.forEach((item) => {
           item.selected = item.tempSelected.slice();
         });
-        this.searchRadioboxConfigs.forEach(function(item) {
+        this.searchRadioboxConfigs.forEach((item) => {
           item.selected = item.tempSelected;
         });
         const options = {
@@ -414,7 +412,7 @@
       },
       linkToMediaSearch(name) {
         this.$router.push({ name: 'mediaCenter', query: { keyword: name } });
-      },
+      }
     }
   };
 </script>

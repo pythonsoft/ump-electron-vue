@@ -46,7 +46,7 @@
       this.isLogin();
     },
     mounted() {
-      setTimeout(()=> {
+      setTimeout(() => {
         this.showLoading = false;
       }, 2000);
     },
@@ -59,7 +59,7 @@
       isLogin() {
         userAPI.getUserAuth()
           .then((res) => {
-            window.location.href = '/trends';
+            //this.$router.push({ name: 'account' });
           }).catch(() => {});
       },
       login() {
@@ -73,7 +73,7 @@
             this.disabled = false;
             localStorage.setItem('userInfo', JSON.stringify(res.data.userInfo));
             localStorage.setItem('jwtToken', JSON.stringify(res.data.jwtToken));
-            this.$router.push({ name: 'trends' });
+            this.$router.push({ name: 'mediaCenter' });
           })
           .catch((error) => {
             this.btnText = '登录';

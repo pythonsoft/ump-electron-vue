@@ -78,7 +78,7 @@
     getDuration,
     getMediaFormat,
     getTitle,
-    getThumb,
+    getThumb
   } from '../../../common/common';
   import { formatTime, isEmptyObject } from '../../../common/utils';
   import {
@@ -93,6 +93,7 @@
     HHIGHLIGHT_FIELDS2,
     FILETR_FIELDS
   } from '../../../common/config';
+
   const mediaAPI = require('../../../api/media');
   const userAPI = require('../../../api/user');
 
@@ -144,7 +145,7 @@
         if (isEmptyObject(val)) {
           this.listType = '';
           this.getDefaultMedia();
-        }else {
+        } else {
           if (this.listType === 'searchResult') {
             this.searchResult = [];
             this.searchResultCurrentPage = 1;
@@ -162,11 +163,11 @@
       getThumb,
       getDefaultMedia() {
         mediaAPI.defaultMedia({ params: { size: 4 } })
-        .then((res) => {
-          this.defaultList = res.data;
-        }).catch((error) => {
-          this.$toast.error(error);
-        });
+          .then((res) => {
+            this.defaultList = res.data;
+          }).catch((error) => {
+            this.$toast.error(error);
+          });
       },
       linkToWatch(item) {
         this.$router.push({

@@ -3,13 +3,11 @@
  */
 const config = {};
 
-config.baseDomain = 'localhost:8080';
+config.baseDomain = (process.env.NODE_ENV !== 'development') ? 'http://ump.phoenixtv.com' : 'localhost:8080';
 // config.baseDomain = '10.0.16.107:8080';
 
 config.streamURL = 'http://ump-live.phoenixtv.com';
 // config.streamURL = 'http://10.0.15.68:8099';
-
-config.socketDomain = 'localhost:9000';
 
 if (window.location.hostname.indexOf('phoenixtv.com') !== -1) {
   config.baseDomain = 'ump-api.phoenixtv.com';

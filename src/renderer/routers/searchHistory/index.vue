@@ -15,7 +15,9 @@
 </template>
 <script>
   import { formatTime } from '../../../common/utils';
+
   const userAPI = require('../../../api/user');
+
   export default {
     data() {
       return {
@@ -65,7 +67,7 @@
           .catch((error) => {
             this.$toast.error(error);
           });
-      },
+      }
     }
   };
 </script>

@@ -17,17 +17,17 @@ let webConfig = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   enforce: 'pre',
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'eslint-loader',
+      //     options: {
+      //       formatter: require('eslint-friendly-formatter')
+      //     }
+      //   }
+      // },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -41,9 +41,13 @@ let webConfig = {
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
         include: [ path.resolve(__dirname, '../src/renderer') ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015'],
+          plugins: ['transform-runtime', 'transform-vue-jsx']
+        }
       },
       {
         test: /\.vue$/,
@@ -100,6 +104,7 @@ let webConfig = {
   ],
   output: {
     filename: '[name].js',
+    chunkFilename: '[name].[hash].js',
     path: path.join(__dirname, '../dist/web')
   },
   resolve: {
